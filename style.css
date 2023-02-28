@@ -1,0 +1,36 @@
+body {
+    background-image: url("../images/elephant.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+span{
+    color: red;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.cards {
+    margin: 48px auto;
+    width: max-content;
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 16px;
+}
+
+h1 {
+    text-align: center;
+    color:gold;
+    font-size: 70px;
+
+}
+
+.cardGrid {
+    display: flex;
+    flex-wrap: wrap;
+    height: 300px;
+    width: 400px;
+}
+
+
+
+
