@@ -9,28 +9,64 @@ span{
     color: red;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.cards {
-    margin: 48px auto;
-    width: max-content;
-    display: grid;
-    grid-template-columns: repeat(4, 100px);
-    gap: 16px;
-}
 
 h1 {
     text-align: center;
     color:gold;
     font-size: 70px;
-
 }
 
-.cardGrid {
+/* This is the card container */
+.cardContainer {
+    margin: 48px auto;
+    width: 50%;
     display: flex;
     flex-wrap: wrap;
-    height: 300px;
-    width: 400px;
 }
 
+/* To style the tiles */
+.card {
+    background: cornsilk;
+    border: 2px rgb(31, 46, 8) solid;
+    cursor: pointer;
+    height: 100px;
+    width: 100px;
+}
 
+.card:hover {
+    box-shadow: inset 0px 0px 0px 1px red;
+    box-sizing: border-box;
+}
 
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: orange;
+}
+
+.yellow {
+    background-color: yellowgreen;
+}
+
+.teal {
+    background-color: teal;
+}
+
+.grey {
+    background-color: grey;
+}
+
+.purple {
+    background-color: purple;
+}
+
+/*.color-hidden {
+    background-color: lightgrey;
+}
 

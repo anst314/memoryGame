@@ -1,20 +1,20 @@
 // This is for the div container
-const cardsContainer = document.querySelector('cards');
+//const cardsContainer = document.querySelector('cardGrid');
 // This is referring to the colors that will be used in the game
 // Change the colors to an image later!!!
-// Array for colors of the cards!
-const cardArray = ["green", "blue", "red", "yellow", "brown", "orange", "purple", "tan"]
+// Array for colors of the cards
 
+const cards = document.querySelectorAll('.card');
+const colorList = [[cardArray], [cardArray]];
+const cardCount = colorList.length;
 
-const grid = document.querySelector('cardGrid');
-// This ...spread operator states array contains 2 of the cardArray colors
-const colorsPicklist = [...cardArray, ...cardArray];
+//console.log(car)
+cards.forEach((card) => {
+card.addEventListener('click', changeColor)});
 
-console.log(colorsPicklist);
+function changeColor(e){
+    const target = element.currentTarget;
+    target.className = target.className.replace('color-hidden', '');
 
-// Generate the board
-function createBoard() {
-    for (let i = 0; i < cardArray.length; i++);
-    const randomIndicies = Math.floor(Math.random() * colorsPicklist.length);
-    const cardColor = colorsPicklist[randomIndicies];
-}
+} 
+
