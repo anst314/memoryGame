@@ -5,12 +5,16 @@ const cards = document.querySelectorAll('.card');
 cards.forEach((card) => {
 card.addEventListener('click', changeColor)});
 
-var timer; 
-var timeLeft = 60; // seconds
+const resetBtn = document.getElementById('reset-btn');
 let savedCard = null;
 let matchedCards = new Set(); 
+let timer = null;
+let timeLeft = 30; // seconds
+let gameRunning = false;
+resetGame();
 
 function changeColor(e){
+    if (!gameRunning) return;
     const target = e.currentTarget;
     if (savedCard !== null && savedCard === target) return;
     if (matchedCards.has(target)) return;
@@ -23,32 +27,24 @@ function changeColor(e){
             matchedCards.add(savedCard);
             matchedCards.add(target);
         } else {
-            setTimeout(() => {
-                
-            }, 2000);
-
             savedCard.classList.add('color-hidden');
             target.classList.add('color-hidden');
         }
         savedCard = null;
     }
-
 } 
- 
 
 // What to do when the timer runs out
 function gameOver() {
     // This cancels the setInterval, so the updateTimer stops getting called
-    cancelInterval(timer);
-    
-    // re-show the button, so they can start it again
-    $('#playAgainButton').show();
+    clearInterval(timer);
+    gameRunning = false;
   }
   
   function updateTimer() {
     timeLeft = timeLeft - 1;
     if(timeLeft >= 0)
-      $('#timer').html(timeLeft);
+      document.getElementById('timer').innerHTML = timeLeft;
     else {
       gameOver();
     }
@@ -56,16 +52,34 @@ function gameOver() {
   
   // The button has an on-click event handler that calls this
   function start() {
+    if (gameRunning) return;
+
     // setInterval is a built-in function that will call the given function
     // every N milliseconds (1 second = 1000 ms)
     timer = setInterval(updateTimer, 1000);
+
+    gameRunning = true;
     
     // It will be a whole second before the time changes, so we'll call the update
     // once ourselves
     updateTimer();
-    
-    // We don't want the to be able to restart the timer while it is running,
-    // so hide the button.
-     $('#playAgainButton').hide();
+  }  
 
+  resetBtn.addEventListener('click', () => {
+    resetGame();
+  });
+ 
+  function resetGame() {
+    timeLeft = 30;
+    document.getElementById('timer').innerHTML = timeLeft;
+    cards.forEach((card) => {
+      if (matchedCards.has(card) ||
+          (savedCard != null && savedCard === card)) {
+        card.classList.add('color-hidden');
+      }
+    });
+    matchedCards.clear();
+    savedCard = null;
   }
+
+  

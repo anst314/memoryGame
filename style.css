@@ -23,7 +23,7 @@ h1 {
 /* This is the card container */
 .cardContainer {
     margin: 48px auto;
-    width: 50%;
+    width: 40%;
     display: flex;
     flex-wrap: wrap;
 }
@@ -34,7 +34,7 @@ h1 {
     border: 2px rgb(31, 46, 8) solid;
     cursor: pointer;
     height: 100px;
-    width: 100px;
+    width: 120px;
 }
 
 .card:hover {
@@ -72,5 +72,18 @@ h1 {
 
 .color-hidden {
     background-color: lightgrey;
+}
+
+#reset-btn {
+    background-color: #f44336;
+    color: white;
+    padding: 10px;
+    border: black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#reset-btn:hover {
+    background-color: #d32f2f;
 }
 
